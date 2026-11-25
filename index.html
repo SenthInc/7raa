@@ -345,6 +345,14 @@
   .who{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
   .who a{font-weight:700;color:var(--white)}
   .who a:hover{color:var(--orange)}
+  .credit .receipt{grid-template-columns:1fr;font-size:14px;color:var(--muted)}
+  .receipt{display:grid;gap:8px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--chip);margin:0}
+  .receipt > div{display:flex;align-items:baseline;gap:14px}
+  .receipt dt{min-width:84px}
+  .who-side{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+  .who-logo{display:inline-flex;align-items:center;background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+  .who-logo img{display:block;height:30px;width:auto}
+  .who-logo:hover{border-color:var(--orange)}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
@@ -661,19 +669,20 @@
   </div>
   <div class="wrap">
     <div class="credit">
-      <dl>
-        <dt>Mfd by</dt><dd><a href="https://bfoundr.com" target="_blank" rel="noopener">bfoundr</a></dd>
-        <dt>Mkt by</dt><dd><a href="https://7raa.com" target="_blank" rel="noopener">7RAA</a></dd>
-        <dt>Origin</dt><dd>Sri Lanka</dd>
+      <dl class="receipt">
+        <div><dt>Mfd by</dt><dd><a href="https://bfoundr.com" target="_blank" rel="noopener">bfoundr</a></dd></div>
+        <div><dt>Mkt by</dt><dd><a href="https://7raa.com" target="_blank" rel="noopener">7RAA</a></dd></div>
+        <div><dt>Origin</dt><dd>Sri Lanka</dd></div>
       </dl>
-      <a class="credit-pill" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA"><img src="assets/bfoundr-logo.webp" alt="bfoundr" height="22"><span aria-hidden="true">×</span><img src="assets/7raa-logo.webp" alt="7RAA" height="22"></a>
-    </div>
-    <div class="who">
-      <div class="switch" role="group" aria-label="Who did what">
-        <button type="button" id="sw-build" aria-pressed="false">Build</button>
-        <button type="button" id="sw-grow" aria-pressed="true">Grow</button>
+      <div class="who-side">
+        <div class="switch" role="group" aria-label="Who did what">
+          <button type="button" id="sw-build" aria-pressed="false">Build</button>
+          <button type="button" id="sw-grow" aria-pressed="true">Grow</button>
+        </div>
+        <a class="who-logo" id="who-logo" href="https://7raa.com" target="_blank" rel="noopener" aria-label="7RAA">
+          <img id="who-img" src="assets/7raa-logo.webp" alt="7RAA" height="30">
+        </a>
       </div>
-      <span id="who-text">Grow: 7RAA takes your brand to market.</span>
     </div>
   </div>
 </footer>
@@ -696,16 +705,21 @@
     });
   })();
 
-  // Build / Grow switch in footer
+  // Build / Grow switch in footer: shows who did the work
   (function(){
-    const b = document.getElementById('sw-build'), g = document.getElementById('sw-grow'), t = document.getElementById('who-text');
+    var b = document.getElementById('sw-build'), g = document.getElementById('sw-grow');
+    var img = document.getElementById('who-img'), link = document.getElementById('who-logo');
     function set(mode){
-      const build = mode === 'build';
-      b.setAttribute('aria-pressed', build); g.setAttribute('aria-pressed', !build);
-      t.textContent = build ? 'Build: bfoundr builds the product and platform.' : 'Grow: 7RAA takes your brand to market.';
+      var build = mode === 'build';
+      b.setAttribute('aria-pressed', build);
+      g.setAttribute('aria-pressed', !build);
+      img.src = build ? 'assets/bfoundr-logo.webp' : 'assets/7raa-logo.webp';
+      img.alt = build ? 'bfoundr' : '7RAA';
+      link.href = build ? 'https://bfoundr.com' : 'https://7raa.com';
+      link.setAttribute('aria-label', build ? 'bfoundr' : '7RAA');
     }
-    b.addEventListener('click', () => set('build'));
-    g.addEventListener('click', () => set('grow'));
+    b.addEventListener('click', function(){ set('build'); });
+    g.addEventListener('click', function(){ set('grow'); });
   })();
 </script>
 
