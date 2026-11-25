@@ -278,6 +278,7 @@
     transition:transform .25s,border-color .25s;min-height:300px;display:flex;flex-direction:column
   }
   .stage:hover{transform:translateY(-6px);border-color:var(--orange)}
+  .ill{display:block;width:56px;height:56px;margin-bottom:10px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
   .stage .no{font-size:52px;font-weight:900;color:transparent;-webkit-text-stroke:1.4px var(--orange);line-height:1}
   .stage h3{font-size:19px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:.04em}
   .stage ul{list-style:none;color:var(--muted);font-size:14.5px;display:grid;gap:6px;margin-bottom:18px}
@@ -388,8 +389,8 @@
   :root[data-theme="dark"] .who-logo .wl img.d{display:block}
   .who-logo:hover .wl{opacity:.85}
   footer{position:relative;overflow:hidden}
-  .c19{position:absolute;right:0;bottom:0;width:150px;height:150px;overflow:hidden;z-index:2;display:block}
-  .c19 span{position:absolute;left:50%;top:50%;width:210px;margin-left:-105px;margin-top:-14px;transform:rotate(-45deg);background:#FF6500;color:#080808;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 0;box-shadow:0 4px 12px rgba(0,0,0,.25);white-space:nowrap}
+  .c19{position:absolute;right:0;top:0;width:150px;height:150px;overflow:hidden;z-index:2;display:block}
+  .c19 span{position:absolute;left:50%;top:50%;width:210px;margin-left:-105px;margin-top:-14px;transform:rotate(45deg);background:#FF6500;color:#080808;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 0;box-shadow:0 4px 12px rgba(0,0,0,.25);white-space:nowrap}
   .c19:hover span{background:#ffa53d}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
@@ -525,42 +526,49 @@
 
       <div class="stages">
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><circle cx="28" cy="28" r="16"/><path d="M40 40l14 14" stroke="#FF6500" stroke-width="5"/><path d="M21 30v-4M28 30v-9M35 30v-6"/><circle cx="28" cy="20" r="1.5" fill="currentColor"/></svg>
           <div class="no">01</div>
           <h3>Research &amp; Discovery</h3>
           <ul><li>Market &amp; audience research</li><li>Competitor analysis</li><li>Market-gap identification</li><li>Feasibility validation</li></ul>
           <div class="out">A researched foundation and a clearer opportunity.</div>
         </article>
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10l22 11-22 11-22-11z"/><path d="M10 32l22 11 22-11"/><path d="M10 43l22 11 22-11" stroke="#FF6500"/></svg>
           <div class="no">02</div>
           <h3>Architecture &amp; Strategy</h3>
           <ul><li>Business &amp; product model</li><li>Scope &amp; roadmap</li><li>Technical architecture</li><li>Delivery phases &amp; priorities</li></ul>
           <div class="out">A practical blueprint for what to build and how.</div>
         </article>
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 56V8"/><path d="M16 10h32l-6 9 6 9H16"/><text x="28" y="24" font-size="10" font-weight="700" fill="#FF6500" stroke="none" font-family="Segoe UI,sans-serif">7</text></svg>
           <div class="no">03</div>
           <h3>Branding &amp; Identity</h3>
           <ul><li>Naming &amp; positioning</li><li>Logo &amp; visual identity</li><li>Colour, type &amp; guidelines</li><li>UI/UX design</li></ul>
           <div class="out">A coherent identity and design direction.</div>
         </article>
         <article class="stage wide reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="14" width="34" height="24" rx="3"/><path d="M4 44h42"/><rect x="46" y="22" width="12" height="22" rx="2" stroke="#FF6500"/><circle cx="52" cy="40" r="1" fill="#FF6500"/></svg>
           <div class="no">04</div>
           <h3>Application &amp; Digital Product</h3>
           <ul><li>Websites &amp; web applications</li><li>Android applications</li><li>iOS applications</li><li>Backend, APIs &amp; databases</li><li>Testing &amp; deployment</li><li>Product integration</li></ul>
           <div class="out">Working digital products built to the agreed requirements.</div>
         </article>
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><rect x="18" y="18" width="28" height="28" rx="3"/><rect x="26" y="26" width="12" height="12" fill="#FF6500" stroke="none"/><path d="M24 10v8M32 10v8M40 10v8M24 46v8M32 46v8M40 46v8M10 24h8M10 32h8M10 40h8M46 24h8M46 32h8M46 40h8"/></svg>
           <div class="no">05</div>
           <h3>Engineering &amp; Integration</h3>
           <ul><li>Hardware product development</li><li>Embedded software &amp; firmware</li><li>IoT &amp; connected devices</li><li>Prototyping &amp; testing</li></ul>
           <div class="out">An integrated technology solution, physical parts included.</div>
         </article>
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 26v12h8l20 12V14L18 26z"/><path d="M46 24c4 3 4 13 0 16M52 18c6 6 6 22 0 28" stroke="#FF6500"/></svg>
           <div class="no">06</div>
           <h3>Advertising &amp; Amplification</h3>
           <ul><li>Digital marketing strategy</li><li>Social media &amp; content</li><li>Design, photo &amp; video</li><li>Paid campaigns</li><li>Performance reporting</li></ul>
           <div class="out">A consistent market presence you can measure.</div>
         </article>
         <article class="stage reveal">
+          <svg class="ill" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8c8 8 10 20 8 32H24c-2-12 0-24 8-32z"/><circle cx="32" cy="26" r="4" stroke="#FF6500"/><path d="M24 40l-8 8M40 40l8 8"/><path d="M28 48v6l4-3 4 3v-6" stroke="#FF6500"/></svg>
           <div class="no">07</div>
           <h3>Activation &amp; Advancement</h3>
           <ul><li>Product &amp; brand launch</li><li>Market introduction</li><li>Implementation support</li><li>Maintenance &amp; improvement</li><li>Expansion planning</li></ul>
