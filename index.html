@@ -186,6 +186,20 @@
   .social{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:18px}
   .social a{color:var(--white);font-weight:600;font-size:14px}
   .social a:hover{color:var(--orange)}
+  .credit{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:22px}
+  .credit dl{display:grid;grid-template-columns:auto auto;gap:8px 18px;font-size:14px;color:var(--muted)}
+  .credit dt{color:var(--orange);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px;padding-top:3px}
+  .credit dd{color:var(--white);font-weight:600}
+  .credit dd a:hover{color:var(--orange)}
+  .switch{display:inline-flex;align-items:center;gap:6px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04)}
+  .switch button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer}
+  .switch button[aria-pressed="true"]{background:var(--orange);color:#1a0f00}
+  .credit-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;font-weight:700;color:var(--white);background:rgba(255,255,255,.04)}
+  .credit-pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange)}
+  .credit-pill:hover{border-color:var(--orange)}
+  .who{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
+  .who a{font-weight:700;color:var(--white)}
+  .who a:hover{color:var(--orange)}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
@@ -495,7 +509,37 @@
       <small>7raa.com · © 2026 7RAA. All rights reserved.</small>
     </div>
   </div>
+  <div class="wrap">
+    <div class="credit">
+      <dl>
+        <dt>Mfd by</dt><dd><a href="https://bfoundr.com" target="_blank" rel="noopener">bfoundr</a></dd>
+        <dt>Mkt by</dt><dd><a href="https://7raa.com" target="_blank" rel="noopener">7RAA</a></dd>
+        <dt>Origin</dt><dd>Sri Lanka</dd>
+      </dl>
+      <a class="credit-pill" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA">bfoundr × 7RAA</a>
+    </div>
+    <div class="who">
+      <div class="switch" role="group" aria-label="Who did what">
+        <button type="button" id="sw-build" aria-pressed="false">Build</button>
+        <button type="button" id="sw-grow" aria-pressed="true">Grow</button>
+      </div>
+      <span id="who-text">Grow: 7RAA takes your brand to market.</span>
+    </div>
+  </div>
 </footer>
+<script>
+  // Build / Grow switch in footer
+  (function(){
+    const b = document.getElementById('sw-build'), g = document.getElementById('sw-grow'), t = document.getElementById('who-text');
+    function set(mode){
+      const build = mode === 'build';
+      b.setAttribute('aria-pressed', build); g.setAttribute('aria-pressed', !build);
+      t.textContent = build ? 'Build: bfoundr builds the product and platform.' : 'Grow: 7RAA takes your brand to market.';
+    }
+    b.addEventListener('click', () => set('build'));
+    g.addEventListener('click', () => set('grow'));
+  })();
+</script>
 
 <script>
   // Reveal on scroll
