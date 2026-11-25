@@ -238,6 +238,9 @@
     box-shadow:0 40px 90px -30px rgba(0,0,0,.6)
   }
   .hero-mark img{width:72%;height:72%;object-fit:cover;border-radius:28px}
+  .hero-mark .sym-dark{display:none}
+  :root[data-theme="dark"] .hero-mark .sym-light{display:none}
+  :root[data-theme="dark"] .hero-mark .sym-dark{display:block}
   .hero-mark .arc{
     position:absolute;left:-10%;right:-10%;bottom:-38%;height:90%;border-radius:50%;
     border-top:14px solid var(--orange);opacity:.9
@@ -451,7 +454,7 @@
       </div>
       <div class="hero-mark reveal">
         <span class="chip">7raa.com</span>
-        <img src="assets/logo-symbol.jpg" alt="7RAA 7 symbol">
+        <img class="sym-light" src="assets/logo-symbol.jpg" alt="7RAA 7 symbol"><img class="sym-dark" src="assets/logo-symbol-inverse.jpg" alt="" aria-hidden="true">
         <span class="arc" aria-hidden="true"></span>
       </div>
     </div>
