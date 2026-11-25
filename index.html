@@ -195,7 +195,8 @@
   .switch button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer}
   .switch button[aria-pressed="true"]{background:var(--orange);color:#1a0f00}
   .credit-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;font-weight:700;color:var(--white);background:rgba(255,255,255,.04)}
-  .credit-pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange)}
+  .credit-pill img{display:block;width:auto}
+  .credit-pill span{color:var(--orange);font-weight:700}
   .credit-pill:hover{border-color:var(--orange)}
   .who{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
   .who a{font-weight:700;color:var(--white)}
@@ -516,7 +517,7 @@
         <dt>Mkt by</dt><dd><a href="https://7raa.com" target="_blank" rel="noopener">7RAA</a></dd>
         <dt>Origin</dt><dd>Sri Lanka</dd>
       </dl>
-      <a class="credit-pill" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA">bfoundr × 7RAA</a>
+      <a class="credit-pill" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA"><img src="assets/bfoundr-logo.webp" alt="bfoundr" height="22"><span aria-hidden="true">×</span><img src="assets/7raa-logo.webp" alt="7RAA" height="22"></a>
     </div>
     <div class="who">
       <div class="switch" role="group" aria-label="Who did what">
