@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7RAA | Beyond the Seven Seas.</title>
+<meta name="description" content="7RAA is a Brand & Technology Development Company. From ideas to identity, from identity to innovation.">
+<link rel="icon" href="assets/logo-symbol.jpg">
+<style>
+  :root{
+    --navy:#071638;
+    --navy-2:#0b1f4d;
+    --navy-3:#112a63;
+    --white:#ffffff;
+    --ink:#0a1430;
+    --muted:#9fb0d6;
+    --orange:#f58220;
+    --orange-2:#ffa53d;
+    --line:rgba(255,255,255,.12);
+    --radius:22px;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--navy);
+    color:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--orange);font-weight:700;margin-bottom:14px
+  }
+  h1,h2,h3{line-height:1.12;letter-spacing:-.02em}
+  h2{font-size:clamp(28px,4vw,44px);font-weight:800}
+  .lead{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:620px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,22,56,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line)
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;letter-spacing:.02em}
+  .brand img{width:38px;height:38px;border-radius:10px;object-fit:cover}
+  .menu{display:flex;gap:26px;font-size:15px;color:var(--muted)}
+  .menu a:hover{color:var(--white)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;
+    font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;transition:.2s
+  }
+  .btn-primary{background:var(--orange);color:#1a0f00}
+  .btn-primary:hover{background:var(--orange-2);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line);color:var(--white)}
+  .btn-ghost:hover{border-color:var(--white)}
+  .nav .btn{padding:10px 18px;font-size:14px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:110px 0 120px}
+  .hero::before{
+    content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;
+    background:radial-gradient(closest-side,rgba(245,130,32,.35),transparent 70%);
+    filter:blur(10px);pointer-events:none
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%);
+    opacity:.35
+  }
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(44px,7vw,88px);font-weight:900;letter-spacing:-.035em}
+  .hero h1 .o{color:var(--orange)}
+  .hero .sub{font-size:clamp(17px,2vw,22px);color:#dbe5ff;margin:22px 0 14px;max-width:560px}
+  .rae{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 34px}
+  .rae span{
+    padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:#dbe5ff;
+    background:rgba(255,255,255,.03)
+  }
+  .rae b{color:var(--orange)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-mark{
+    position:relative;aspect-ratio:1/1;max-width:440px;width:100%;justify-self:center;
+    border-radius:36px;background:linear-gradient(160deg,var(--navy-3),var(--navy-2) 55%,var(--navy));
+    border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.6)
+  }
+  .hero-mark img{width:72%;height:72%;object-fit:cover;border-radius:28px}
+  .hero-mark .arc{
+    position:absolute;left:-10%;right:-10%;bottom:-38%;height:90%;border-radius:50%;
+    border-top:14px solid var(--orange);opacity:.9
+  }
+  .hero-mark .chip{
+    position:absolute;right:18px;top:18px;background:var(--white);color:var(--navy);
+    padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px
+  }
+
+  /* ---------- marquee / ticker ---------- */
+  .ticker{background:var(--orange);color:#1a0f00;overflow:hidden;white-space:nowrap}
+  .ticker-track{display:inline-flex;gap:48px;padding:14px 0;animation:tick 28s linear infinite;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:14px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  section{padding:110px 0;position:relative}
+  .alt{background:linear-gradient(180deg,var(--navy),var(--navy-2) 60%,var(--navy))}
+
+  /* ---------- about ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .stat{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.03)}
+  .stat strong{display:block;font-size:34px;color:var(--orange);font-weight:900}
+  .stat span{color:var(--muted);font-size:14px}
+  .pillars{display:grid;gap:14px;margin-top:28px}
+  .pillar{display:flex;gap:16px;padding:20px 22px;border-radius:18px;background:var(--navy-2);border:1px solid var(--line)}
+  .pillar i{font-style:normal;font-weight:900;color:var(--orange);font-size:22px;min-width:28px}
+  .pillar p{color:#dbe5ff}
+
+  /* ---------- seven ways ---------- */
+  .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .stage{
+    position:relative;padding:28px 24px 26px;border-radius:var(--radius);
+    background:linear-gradient(180deg,var(--navy-2),var(--navy));border:1px solid var(--line);
+    transition:transform .25s,border-color .25s;min-height:300px;display:flex;flex-direction:column
+  }
+  .stage:hover{transform:translateY(-6px);border-color:var(--orange)}
+  .stage .no{font-size:52px;font-weight:900;color:transparent;-webkit-text-stroke:1.4px var(--orange);line-height:1}
+  .stage h3{font-size:19px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:.04em}
+  .stage ul{list-style:none;color:var(--muted);font-size:14.5px;display:grid;gap:6px;margin-bottom:18px}
+  .stage ul li::before{content:"→ ";color:var(--orange)}
+  .stage .out{margin-top:auto;font-size:13.5px;color:#dbe5ff;border-top:1px solid var(--line);padding-top:14px}
+  .stage.wide{grid-column:span 2}
+  .stage.wide ul{columns:2}
+
+  /* ---------- RAA ---------- */
+  .raa{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .raa-card{padding:40px 30px;border-radius:var(--radius);background:var(--white);color:var(--ink);position:relative;overflow:hidden}
+  .raa-card .l{font-size:96px;font-weight:900;color:var(--navy);line-height:.9}
+  .raa-card .l em{font-style:normal;color:var(--orange)}
+  .raa-card h3{font-size:22px;margin:20px 0 10px;letter-spacing:.06em}
+  .raa-card p{color:#33416a}
+
+  /* ---------- journey ---------- */
+  .journey{display:flex;flex-wrap:wrap;gap:0;margin-top:20px;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+  .journey span{flex:1 1 auto;padding:18px 22px;text-align:center;font-weight:700;font-size:14px;letter-spacing:.12em;background:var(--navy-2);border-right:1px solid var(--line)}
+  .journey span:last-child{border-right:0;background:var(--orange);color:#1a0f00}
+
+  /* ---------- solutions ---------- */
+  .solutions{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sol{padding:34px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .sol h3{font-size:24px;margin-bottom:12px}
+  .sol p{color:var(--muted);margin-bottom:18px}
+  .sol .tag{font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;font-weight:700}
+
+  /* ---------- principles ---------- */
+  .principles{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .principle{padding:22px;border-radius:18px;background:var(--navy-2);border:1px solid var(--line);font-size:15px}
+  .principle b{display:block;color:var(--white);margin-bottom:6px}
+  .principle span{color:var(--muted)}
+
+  /* ---------- cta / contact ---------- */
+  .cta{
+    border-radius:32px;padding:70px 50px;background:
+      radial-gradient(600px 300px at 90% 0%,rgba(245,130,32,.35),transparent 70%),
+      linear-gradient(135deg,var(--navy-3),var(--navy-2));
+    border:1px solid var(--line);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center
+  }
+  .cta h2{font-size:clamp(30px,4vw,50px)}
+  form{display:grid;gap:12px}
+  input,select,textarea{
+    width:100%;padding:15px 16px;border-radius:14px;border:1px solid var(--line);
+    background:rgba(7,22,56,.7);color:var(--white);font:inherit
+  }
+  input::placeholder,textarea::placeholder{color:#7d8fbb}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);border-color:transparent}
+  textarea{min-height:110px;resize:vertical}
+  .form-note{font-size:13px;color:var(--muted)}
+
+  footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .foot .brand{color:var(--white)}
+  .foot small{display:block;margin-top:14px;font-size:13px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .hero-grid,.split,.cta{grid-template-columns:1fr}
+    .hero-mark{max-width:360px}
+    .stages{grid-template-columns:repeat(2,1fr)}
+    .stage.wide{grid-column:span 2}
+    .principles{grid-template-columns:repeat(2,1fr)}
+    .solutions{grid-template-columns:1fr}
+    .raa{grid-template-columns:1fr}
+    .menu{display:none}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    section{padding:80px 0}
+    .hero{padding:70px 0 80px}
+    .stages{grid-template-columns:1fr}
+    .stage.wide{grid-column:span 1}
+    .stage.wide ul{columns:1}
+    .principles{grid-template-columns:1fr}
+    .cta{padding:44px 24px}
+    .nav .btn{display:none}
+    .journey span{flex:1 1 45%}
+    .stat-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="7RAA home">
+      <img src="assets/logo-symbol.jpg" alt="7RAA symbol">
+      7RAA
+    </a>
+    <nav class="menu" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#seven">The Seven Ways</a>
+      <a href="#raa">RAA</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">A Global Brand &amp; Technology Development Company</span>
+        <h1>Beyond the<br><span class="o">Seven Seas.</span></h1>
+        <p class="sub">One coordinated partner for the journey from an early-stage idea to a complete brand, digital product or connected technology solution, through launch and growth.</p>
+        <div class="rae" aria-label="Reach, Attract, Amplify">
+          <span><b>R</b>each</span>
+          <span><b>A</b>ttract</span>
+          <span><b>A</b>mplify</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Start your journey →</a>
+          <a class="btn btn-ghost" href="#seven">Explore the seven stages</a>
+        </div>
+      </div>
+      <div class="hero-mark reveal">
+        <span class="chip">7raa.com</span>
+        <img src="assets/logo-symbol.jpg" alt="7RAA 7 symbol">
+        <span class="arc" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>From ideas to identity</span><span>✦</span><span>From identity to innovation</span><span>✦</span><span>Research</span><span>✦</span><span>Strategy</span><span>✦</span><span>Brand</span><span>✦</span><span>Build</span><span>✦</span><span>Connect</span><span>✦</span><span>Promote</span><span>✦</span><span>Launch</span><span>✦</span><span>Grow</span><span>✦</span>
+      <span>From ideas to identity</span><span>✦</span><span>From identity to innovation</span><span>✦</span><span>Research</span><span>✦</span><span>Strategy</span><span>✦</span><span>Brand</span><span>✦</span><span>Build</span><span>✦</span><span>Connect</span><span>✦</span><span>Promote</span><span>✦</span><span>Launch</span><span>✦</span><span>Grow</span><span>✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="alt">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">About 7RAA</span>
+        <h2>Every great product begins with an idea. We help it become something real.</h2>
+        <p class="lead" style="margin-top:20px">Through research, strategy, branding, digital development, engineering, advertising and launch support, we bring the right capabilities together under one connected journey. From the first question to the first customer, and beyond, we help ideas reach further.</p>
+        <div class="pillars">
+          <div class="pillar"><i>01</i><p><strong>Research before recommendation.</strong> Decisions are informed by the market, users and constraints.</p></div>
+          <div class="pillar"><i>02</i><p><strong>One connected experience.</strong> Brand, design, software, hardware and marketing pull toward the same vision.</p></div>
+          <div class="pillar"><i>03</i><p><strong>Fit-for-purpose solutions.</strong> We recommend a website, app or hardware only when it serves the need.</p></div>
+        </div>
+      </div>
+      <div class="stat-grid reveal">
+        <div class="stat"><strong>7</strong><span>connected stages from idea to growth</span></div>
+        <div class="stat"><strong>3</strong><span>audiences: founders, startups &amp; established businesses</span></div>
+        <div class="stat"><strong>1</strong><span>coordinated partner for the whole journey</span></div>
+        <div class="stat"><strong>∞</strong><span>reach, beyond geographical limits</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEVEN WAYS -->
+  <section id="seven">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">The Seven Ways</span>
+          <h2>A connected pathway from<br>opportunity to growth.</h2>
+        </div>
+        <p class="lead">The seven stages can be delivered as a complete programme or as selected services. Your scope is tailored to your goals.</p>
+      </div>
+
+      <div class="stages">
+        <article class="stage reveal">
+          <div class="no">01</div>
+          <h3>Research &amp; Discovery</h3>
+          <ul><li>Market &amp; audience research</li><li>Competitor analysis</li><li>Market-gap identification</li><li>Feasibility validation</li></ul>
+          <div class="out">A researched foundation and a clearer opportunity.</div>
+        </article>
+        <article class="stage reveal">
+          <div class="no">02</div>
+          <h3>Architecture &amp; Strategy</h3>
+          <ul><li>Business &amp; product model</li><li>Scope &amp; roadmap</li><li>Technical architecture</li><li>Delivery phases &amp; priorities</li></ul>
+          <div class="out">A practical blueprint for what to build and how.</div>
+        </article>
+        <article class="stage reveal">
+          <div class="no">03</div>
+          <h3>Branding &amp; Identity</h3>
+          <ul><li>Naming &amp; positioning</li><li>Logo &amp; visual identity</li><li>Colour, type &amp; guidelines</li><li>UI/UX design</li></ul>
+          <div class="out">A coherent identity and design direction.</div>
+        </article>
+        <article class="stage wide reveal">
+          <div class="no">04</div>
+          <h3>Application &amp; Digital Product</h3>
+          <ul><li>Websites &amp; web applications</li><li>Android applications</li><li>iOS applications</li><li>Backend, APIs &amp; databases</li><li>Testing &amp; deployment</li><li>Product integration</li></ul>
+          <div class="out">Working digital products built to the agreed requirements.</div>
+        </article>
+        <article class="stage reveal">
+          <div class="no">05</div>
+          <h3>Engineering &amp; Integration</h3>
+          <ul><li>Hardware product development</li><li>Embedded software &amp; firmware</li><li>IoT &amp; connected devices</li><li>Prototyping &amp; testing</li></ul>
+          <div class="out">An integrated technology solution, physical parts included.</div>
+        </article>
+        <article class="stage reveal">
+          <div class="no">06</div>
+          <h3>Advertising &amp; Amplification</h3>
+          <ul><li>Digital marketing strategy</li><li>Social media &amp; content</li><li>Design, photo &amp; video</li><li>Paid campaigns</li><li>Performance reporting</li></ul>
+          <div class="out">A consistent market presence you can measure.</div>
+        </article>
+        <article class="stage reveal">
+          <div class="no">07</div>
+          <h3>Activation &amp; Advancement</h3>
+          <ul><li>Product &amp; brand launch</li><li>Market introduction</li><li>Implementation support</li><li>Maintenance &amp; improvement</li><li>Expansion planning</li></ul>
+          <div class="out">A launched solution with a path to keep growing.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAA -->
+  <section id="raa" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">The meaning of RAA</span>
+          <h2>Beyond the seven seas,<br>reach. attract. amplify.</h2>
+        </div>
+        <p class="lead">The outward-facing purpose of 7RAA. It complements the seven-stage delivery framework rather than replacing it.</p>
+      </div>
+      <div class="raa">
+        <article class="raa-card reveal">
+          <div class="l">R<em>.</em></div>
+          <h3>REACH</h3>
+          <p>Connect brands, products and businesses with the audiences and markets they want to serve.</p>
+        </article>
+        <article class="raa-card reveal">
+          <div class="l">A<em>.</em></div>
+          <h3>ATTRACT</h3>
+          <p>Create compelling identities, products, experiences and campaigns that earn attention and interest.</p>
+        </article>
+        <article class="raa-card reveal">
+          <div class="l">A<em>.</em></div>
+          <h3>AMPLIFY</h3>
+          <p>Strengthen visibility, engagement and growth through technology, communication and ongoing improvement.</p>
+        </article>
+      </div>
+
+      <div class="journey reveal" style="margin-top:56px" aria-label="Client journey">
+        <span>Idea</span><span>Research</span><span>Strategy</span><span>Brand</span><span>Build</span><span>Connect</span><span>Promote</span><span>Launch</span><span>Grow</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Solutions</span>
+          <h2>Built for whoever is building.</h2>
+        </div>
+        <p class="lead">Not every project needs every service. We assess the need and coordinate only what it takes.</p>
+      </div>
+      <div class="solutions">
+        <article class="sol reveal">
+          <span class="tag">Individuals &amp; Founders</span>
+          <h3 style="margin-top:14px">Validate &amp; shape</h3>
+          <p>Turn an idea into a viable product or venture, with research, strategy and a clear first version.</p>
+          <a class="btn btn-ghost" href="#contact">Talk to us →</a>
+        </article>
+        <article class="sol reveal">
+          <span class="tag">Startups</span>
+          <h3 style="margin-top:14px">Build &amp; launch</h3>
+          <p>Brand, digital platforms, applications and a launch presence, delivered as one connected programme.</p>
+          <a class="btn btn-ghost" href="#contact">Talk to us →</a>
+        </article>
+        <article class="sol reveal">
+          <span class="tag">Established Businesses</span>
+          <h3 style="margin-top:14px">Modernise &amp; expand</h3>
+          <p>Refresh identity, customer experience, systems and market reach without starting from zero.</p>
+          <a class="btn btn-ghost" href="#contact">Talk to us →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="alt" style="padding-top:20px">
+    <div class="wrap">
+      <div class="principles reveal">
+        <div class="principle"><b>Research first</b><span>Decisions follow the market, users and constraints.</span></div>
+        <div class="principle"><b>One experience</b><span>Brand, design, software and marketing aligned.</span></div>
+        <div class="principle"><b>Fit for purpose</b><span>The right solution for the need, nothing more.</span></div>
+        <div class="principle"><b>Clear scope</b><span>Deliverables, timelines and ownership agreed up front.</span></div>
+        <div class="principle"><b>Launch with continuity</b><span>Support, measurement and improvement after release.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div>
+          <span class="eyebrow">Start a conversation</span>
+          <h2>Ideas to identity.<br>Identity to innovation.</h2>
+          <p class="lead" style="margin-top:18px">Tell us what you are building. We will reply with a short consultation plan and the stages that fit.</p>
+        </div>
+        <form id="enquiry" action="#" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, we will be in touch ✓';">
+          <input name="name" placeholder="Your name" required>
+          <input name="email" type="email" placeholder="Work email" required>
+          <select name="type" required>
+            <option value="" disabled selected>I am a…</option>
+            <option>Individual or founder</option>
+            <option>Startup</option>
+            <option>Established business</option>
+            <option>Product innovator</option>
+          </select>
+          <textarea name="message" placeholder="A few words about your idea or challenge"></textarea>
+          <button class="btn btn-primary" type="submit" style="justify-content:center">Request a consultation →</button>
+          <p class="form-note">We reply with a scope and timeline. Final scope, costs and milestones are confirmed in a proposal for each client.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#top"><img src="assets/logo-symbol.jpg" alt="" width="34" height="34">7RAA</a>
+      <small>Beyond the Seven Seas. · Reach. Attract. Amplify.</small>
+    </div>
+    <div>
+      <small>7raa.com · © 2026 7RAA. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
