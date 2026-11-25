@@ -353,7 +353,9 @@
   .receipt dt{min-width:84px}
   .who-side{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
   .who-logo{display:inline-flex;align-items:center;background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
-  .who-logo img{display:block;height:30px;width:auto}
+  .who-logo img{display:block;width:auto;max-width:none}
+  .who-logo img[src*="bfoundr"]{height:20px}
+  .who-logo img[src*="wordmark"]{height:30px}
   .who-logo:hover{border-color:var(--orange)}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
