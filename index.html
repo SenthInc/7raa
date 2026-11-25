@@ -370,6 +370,26 @@
   .who-logo img[src*="wordmark"]{height:30px}
   .who-logo:hover{border-color:var(--orange)}
 
+  /* footer switch: sliding thumb, no container around the logo */
+  .switch{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;width:200px;border:1px solid var(--line);border-radius:999px;background:var(--chip)}
+  .switch::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--orange);transition:transform .4s var(--ease)}
+  .switch[data-mode="grow"]::before{transform:translateX(100%)}
+  .switch button{position:relative;z-index:1;background:transparent!important;color:var(--muted);border:0;padding:9px 0;text-align:center;font:600 13px var(--display);cursor:pointer}
+  .switch button[aria-pressed="true"]{color:#1a0f00}
+  .who-logo{position:relative;display:inline-grid;background:none;border:0;padding:0;min-height:30px;min-width:150px}
+  .who-logo .wl{grid-area:1/1;display:flex;align-items:center;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .who-logo .wl img{display:block;width:auto;max-width:none}
+  .wl-bf img{height:22px}
+  .wl-sr img{height:30px}
+  .who-logo[data-brand="sr"] .wl-bf,
+  .who-logo[data-brand="bf"] .wl-sr{opacity:0;transform:translateY(6px);pointer-events:none}
+  .who-logo .wl img.d{display:none}
+  :root[data-theme="dark"] .who-logo .wl img.l{display:none}
+  :root[data-theme="dark"] .who-logo .wl img.d{display:block}
+  .who-logo:hover .wl{opacity:.85}
+  .c19{display:inline-block;margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .c19:hover{color:var(--orange)}
+
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
   .foot .brand{color:var(--white)}
@@ -694,15 +714,17 @@
         <div class="bc-wrap" aria-hidden="true"><span class="bc"></span><span class="bc-url">bfoundr.com</span></div>
       </div>
       <div class="who-side">
-        <div class="switch" role="group" aria-label="Who did what">
+        <div class="switch" id="who-switch" data-mode="grow" role="group" aria-label="Who did what">
           <button type="button" id="sw-build" aria-pressed="false">Build</button>
           <button type="button" id="sw-grow" aria-pressed="true">Grow</button>
         </div>
-        <a class="who-logo" id="who-logo" href="https://7raa.com" target="_blank" rel="noopener" aria-label="7RAA">
-          <img id="who-img" src="assets/logo-7raa-wordmark-inverse.png" alt="7RAA" height="30">
-        </a>
+        <div class="who-logo" id="who-logo" data-brand="sr">
+          <a class="wl wl-bf" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="bfoundr"><img class="l" src="assets/bfoundr-logo.webp" alt="bfoundr"><img class="d" src="assets/bfoundr-logo-inverse.png" alt=""></a>
+          <a class="wl wl-sr" href="https://7raa.com" target="_blank" rel="noopener" aria-label="7RAA"><img class="l" src="assets/logo-7raa-wordmark-inverse.png" alt="7RAA"><img class="d" src="assets/logo-7raa-wordmark.png" alt=""></a>
+        </div>
       </div>
     </div>
+    <a class="c19" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA">bfoundr × 7RAA</a>
   </div>
 </footer>
 <script>
@@ -724,21 +746,21 @@
     });
   })();
 
-  // Build / Grow switch in footer: shows who did the work
+  // Build / Grow switch in footer: slides and shows who did the work
   (function(){
+    var sw = document.getElementById('who-switch');
     var b = document.getElementById('sw-build'), g = document.getElementById('sw-grow');
-    var img = document.getElementById('who-img'), link = document.getElementById('who-logo');
+    var logo = document.getElementById('who-logo');
     function set(mode){
       var build = mode === 'build';
+      sw.setAttribute('data-mode', mode);
       b.setAttribute('aria-pressed', build);
       g.setAttribute('aria-pressed', !build);
-      img.src = build ? 'assets/bfoundr-logo.webp' : 'assets/logo-7raa-wordmark-inverse.png';
-      img.alt = build ? 'bfoundr' : '7RAA';
-      link.href = build ? 'https://bfoundr.com' : 'https://7raa.com';
-      link.setAttribute('aria-label', build ? 'bfoundr' : '7RAA');
+      logo.setAttribute('data-brand', build ? 'bf' : 'sr');
     }
     b.addEventListener('click', function(){ set('build'); });
     g.addEventListener('click', function(){ set('grow'); });
+    set(sw.getAttribute('data-mode') || 'grow');
   })();
 </script>
 
