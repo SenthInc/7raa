@@ -180,6 +180,9 @@
   input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);border-color:transparent}
   textarea{min-height:110px;resize:vertical}
   .form-note{font-size:13px;color:var(--muted)}
+  .contact-lines{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .contact-lines a{padding:12px 18px;border:1px solid var(--line);border-radius:999px;font-weight:600;font-size:15px;background:rgba(255,255,255,.04)}
+  .contact-lines a:hover{border-color:var(--orange);color:var(--orange)}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
@@ -442,6 +445,11 @@
           <span class="eyebrow">Start a conversation</span>
           <h2>Ideas to identity.<br>Identity to innovation.</h2>
           <p class="lead" style="margin-top:18px">Tell us what you are building. We will reply with a short consultation plan and the stages that fit.</p>
+          <div class="contact-lines">
+            <a href="mailto:info@7raa.com">✉ info@7raa.com</a>
+            <a href="tel:+94214904542">☎ +94 214 904 542</a>
+            <a href="https://maps.google.com/?q=Maradana+Road,+Colombo+01000" target="_blank" rel="noopener">⌖ Maradana Road, Colombo 01000</a>
+          </div>
         </div>
         <form id="enquiry" action="#" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, we will be in touch ✓';">
           <input name="name" placeholder="Your name" required>
@@ -470,6 +478,8 @@
       <small>Beyond the Seven Seas. · Reach. Attract. Amplify.</small>
     </div>
     <div>
+      <small><a href="mailto:info@7raa.com">info@7raa.com</a> · <a href="tel:+94214904542">+94 214 904 542</a></small>
+      <small>Maradana Road, Colombo 01000, Sri Lanka</small>
       <small>7raa.com · © 2026 7RAA. All rights reserved.</small>
     </div>
   </div>
