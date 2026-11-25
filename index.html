@@ -387,8 +387,10 @@
   :root[data-theme="dark"] .who-logo .wl img.l{display:none}
   :root[data-theme="dark"] .who-logo .wl img.d{display:block}
   .who-logo:hover .wl{opacity:.85}
-  .c19{display:inline-block;margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none}
-  .c19:hover{color:var(--orange)}
+  footer{position:relative;overflow:hidden}
+  .c19{position:absolute;right:0;bottom:0;width:150px;height:150px;overflow:hidden;z-index:2;display:block}
+  .c19 span{position:absolute;left:50%;top:50%;width:210px;margin-left:-105px;margin-top:-14px;transform:rotate(-45deg);background:#FF6500;color:#080808;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 0;box-shadow:0 4px 12px rgba(0,0,0,.25);white-space:nowrap}
+  .c19:hover span{background:#ffa53d}
 
   footer{padding:60px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
@@ -724,8 +726,8 @@
         </div>
       </div>
     </div>
-    <a class="c19" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA">bfoundr × 7RAA</a>
   </div>
+  <a class="c19" href="https://bfoundr.com" target="_blank" rel="noopener" aria-label="Built by bfoundr, marketing by 7RAA"><span>bfoundr × 7RAA</span></a>
 </footer>
 <script>
   // Light / dark toggle
