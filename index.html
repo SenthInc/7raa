@@ -185,7 +185,9 @@
   .brand img{width:38px;height:38px;border-radius:10px;object-fit:cover}
   .brand img.wordmark{width:auto;height:44px;border-radius:0;object-fit:contain}
   @media (max-width:600px){.brand img.wordmark{height:36px}}
-  :root[data-theme="light"] .brand img.wordmark{background:#071638;padding:8px 14px;border-radius:12px;height:auto;width:172px}
+    .wm-dark{display:none}
+  :root[data-theme="light"] .wm-light{display:none}
+  :root[data-theme="light"] .wm-dark{display:block}
   .menu{display:flex;gap:26px;font-size:15px;color:var(--muted)}
   .menu a:hover{color:var(--white)}
   .btn{
@@ -398,7 +400,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="7RAA home">
-      <img class="wordmark" src="assets/logo-7raa-wordmark.png" alt="7RAA: Beyond Seven Seas" width="178" height="51">
+      <img class="wordmark wm-light" src="assets/logo-7raa-wordmark.png" alt="7RAA: Beyond Seven Seas" width="178" height="51"><img class="wordmark wm-dark" src="assets/logo-7raa-wordmark-inverse.png" alt="" aria-hidden="true" width="178" height="51">
     </a>
     <nav class="menu" aria-label="Primary">
       <a href="#about">About</a>
@@ -649,7 +651,7 @@
 <footer>
   <div class="wrap foot">
     <div>
-      <a class="brand" href="#top" aria-label="7RAA home"><img class="wordmark" src="assets/logo-7raa-wordmark.png" alt="7RAA: Beyond Seven Seas" width="178" height="51"></a>
+      <a class="brand" href="#top" aria-label="7RAA home"><img class="wordmark wm-light" src="assets/logo-7raa-wordmark.png" alt="7RAA: Beyond Seven Seas" width="178" height="51"><img class="wordmark wm-dark" src="assets/logo-7raa-wordmark-inverse.png" alt="" aria-hidden="true" width="178" height="51"></a>
       <small>Beyond the Seven Seas. · Reach. Attract. Amplify.</small>
     </div>
     <div>
@@ -680,7 +682,7 @@
           <button type="button" id="sw-grow" aria-pressed="true">Grow</button>
         </div>
         <a class="who-logo" id="who-logo" href="https://7raa.com" target="_blank" rel="noopener" aria-label="7RAA">
-          <img id="who-img" src="assets/7raa-logo.webp" alt="7RAA" height="30">
+          <img id="who-img" src="assets/logo-7raa-wordmark-inverse.png" alt="7RAA" height="30">
         </a>
       </div>
     </div>
@@ -713,7 +715,7 @@
       var build = mode === 'build';
       b.setAttribute('aria-pressed', build);
       g.setAttribute('aria-pressed', !build);
-      img.src = build ? 'assets/bfoundr-logo.webp' : 'assets/7raa-logo.webp';
+      img.src = build ? 'assets/bfoundr-logo.webp' : 'assets/logo-7raa-wordmark-inverse.png';
       img.alt = build ? 'bfoundr' : '7RAA';
       link.href = build ? 'https://bfoundr.com' : 'https://7raa.com';
       link.setAttribute('aria-label', build ? 'bfoundr' : '7RAA');
